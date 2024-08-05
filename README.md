@@ -19,7 +19,7 @@ Our paper was accepted by ECCV-2024.
 
 ### Data Preparation
 
-To reproduce the results in the paper, we provide the pre-extracted features of the VLM in [this link](https://pan.pku.edu.cn) and the outputs of the LLM in [`dataset/charades-sta/llm_outputs.json`](dataset/charades-sta/llm_outputs.json) and [`dataset/activitynet/llm_outputs.json`](dataset/activitynet/llm_outputs.json). Please download the pre-extracted features and configure the path for these features in [`data_configs.py`](data_configs.py) file.
+To reproduce the results in the paper, we provide the pre-extracted features of the VLM in [this link](https://disk.pku.edu.cn/link/AA3641EABF29EE483F8AE89E1C149DD496) and the outputs of the LLM in [`dataset/charades-sta/llm_outputs.json`](dataset/charades-sta/llm_outputs.json) and [`dataset/activitynet/llm_outputs.json`](dataset/activitynet/llm_outputs.json). Please download the pre-extracted features and configure the path for these features in [`data_configs.py`](data_configs.py) file.
 
 ## Main Results
 
