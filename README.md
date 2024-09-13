@@ -15,7 +15,6 @@ Our paper was accepted by ECCV-2024.
 - salesforce-lavis
 - sklearn
 - json5
-- openai
 
 ### Data Preparation
 
@@ -79,3 +78,45 @@ python evaluate.py --dataset charades --split novel-word
 |  Charades-STA test-ood            |  65.07  |  49.24  |  23.05  |  44.01  |
 |  Charades-STA novel-composition   |  61.53  |  43.84  |  18.68  |  40.19  |
 |  Charades-STA novel-word          |  68.49  |  56.26  |  28.49  |  46.90  |
+
+## Test on Custom Datasets
+
+### Feature Extraction
+
+Please run `feature_extraction.py` to obtain the video features of your datasets.
+
+```bash
+python feature_extraction.py --input_root VIDEO_PATH --save_root FEATURE_SAVE_PATH
+```
+
+### Data Configuration
+
+Please add your dataset in the `data_configs.py`. You may need to adjust the stride and max_stride_factor to achieve better performance.
+
+The format of the annotation file can refer to `dataset/charades-sta/test_trivial.json`.
+
+### Test without LLM
+
+To test the performance with only VLM, please run:
+
+```bash
+python evaluate.py --dataset DATASET --split SPLIT
+```
+
+`DATASET` and `SPLIT` are the dataset name and split that you add in the `data_configs.py`.
+
+### Test with LLM
+
+To obtain the outputs of LLM, please run:
+
+```bash
+python get_llm_outputs.py --api_key API_KEY --input_file ANNOTATION_FILE --output_file LLM_OUTPUT_FILE
+```
+
+We have implemented models from OpenAI, Google, and Groq. You can specify the model using `--model_type` and select a specific model with `--model_name`. You will need to apply for the corresponding model's API key and install the necessary dependencies, such as `openai`, `google-generativeai`, or `groq`.
+
+To test the performance, please run:
+
+```bash
+python evaluate.py --dataset DATASET --split SPLIT --llm_output LLM_OUTPUT_FILE
+```

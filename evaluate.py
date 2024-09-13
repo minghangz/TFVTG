@@ -52,7 +52,7 @@ def eval_with_llm(data, feature_path, stride, max_stride_factor, pad_sec=0.0):
                 relation = 'single-query'
             # query
             query_json = [{'descriptions': ann['sentences'][i]}]
-            if 'query_json' in ann['response'][i]:
+            if 'query_json' in ann['response'][i] and len(ann['response'][i]['query_json']) > 0:
                 query_json += [{'descriptions': q} for q in ann['response'][i]['query_json'][0]['descriptions']]
             answers = localize(video_feature, duration, query_json, stride, int(video_feature.shape[0] * max_stride_factor))
             proposals = []

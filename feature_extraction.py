@@ -64,8 +64,8 @@ def get_visual_features(video_path, fps=None, stride=None, max_duration=None, ba
 
 def get_args():
     parser = argparse.ArgumentParser(description='Extract BLIP-2 features for videos')
-    parser.add_argument('--input_root', default='/home/zhengmh/Datasets/Charades/Charades_v1_480/', type=str)
-    parser.add_argument('--save_root', default='/home/zhengmh/Datasets/Charades/blip2_coco_features/', type=str)
+    parser.add_argument('--input_root', required=True, type=str)
+    parser.add_argument('--save_root', required=True, type=str)
     parser.add_argument('--stride', default=None, type=int)
     parser.add_argument('--fps', default=3, type=float)
     parser.add_argument('--batch_size', default=256, type=int)
